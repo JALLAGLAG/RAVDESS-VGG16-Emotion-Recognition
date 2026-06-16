@@ -12,7 +12,7 @@ This repository contains the source code associated with the following article:
 
 **DOI:** To be added upon publication.
 
-The proposed framework investigates video-based facial emotion recognition using a lightweight two-stage architecture. Spatial features are extracted from individual frames using a fine-tuned VGG16 network, while video-level predictions are obtained through confidence-based majority voting.
+The proposed framework investigates video-based facial emotion recognition using a lightweight two-stage architecture. Spatial features are extracted using a fine-tuned VGG16 network, while video-level predictions are obtained through confidence-based majority voting.
 
 ---
 
@@ -20,7 +20,6 @@ The proposed framework investigates video-based facial emotion recognition using
 
 ```text
 ravdess_vgg16_code/
-├── extract_frames.py
 ├── model.py
 ├── train_5fold.py
 ├── gradcam.py
@@ -33,13 +32,13 @@ ravdess_vgg16_code/
 
 ## Method Summary
 
-- **Input:** Video frames extracted from RAVDESS videos.
-- **Spatial feature extraction:** Fine-tuned VGG16 network.
-- **Frame-level classification:** Softmax classifier.
-- **Video-level prediction:** Confidence-based majority voting.
+- **Input:** Facial frames extracted from RAVDESS videos.
+- **Spatial Feature Extraction:** Fine-tuned VGG16 network.
+- **Frame-Level Classification:** Softmax classifier.
+- **Video-Level Aggregation:** Confidence-based majority voting.
 - **Interpretability:** Grad-CAM visualization.
-- **Evaluation protocol:** Actor-independent 5-fold cross-validation.
-- **Dataset:** Video-only speech subset of RAVDESS.
+- **Evaluation Protocol:** Actor-independent 5-fold cross-validation.
+- **Dataset:** Video-only speech subset of the RAVDESS dataset.
 
 The proposed framework provides a lightweight and computationally efficient solution for video-based facial emotion recognition.
 
@@ -65,12 +64,6 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Frame Extraction
-
-```bash
-python extract_frames.py
-```
-
 ### Actor-Independent 5-Fold Cross-Validation
 
 ```bash
@@ -87,7 +80,7 @@ python gradcam.py
 
 ## Reproducibility
 
-This repository contains the scripts required to reproduce the preprocessing, training, and evaluation procedures described in the paper.
+This repository contains the scripts required to reproduce the training, evaluation, and Grad-CAM visualization procedures described in the paper.
 
 ---
 
@@ -97,7 +90,6 @@ The source code for the proposed two-stage VGG16-based framework is publicly ava
 
 The repository includes:
 
-- frame extraction,
 - actor-independent five-fold cross-validation,
 - VGG16 fine-tuning,
 - confidence-based majority voting,
@@ -115,11 +107,11 @@ If you use this code, please cite:
 
 ```bibtex
 @article{jallaglag2026emotion,
-title={A Two-Stage Deep Learning Approach for Facial Emotion Recognition in RAVDESS Videos},
-author={Jallaglag, Achraf and Sabri, My Abdelouahed and Yahyaouy, Ali and Aarab, Abdellah},
-journal={Scientific Reports},
-year={2026},
-doi={TO_BE_ADDED}
+  title={A Two-Stage Deep Learning Approach for Facial Emotion Recognition in RAVDESS Videos},
+  author={Jallaglag, Achraf and Sabri, My Abdelouahed and Yahyaouy, Ali and Aarab, Abdellah},
+  journal={Scientific Reports},
+  year={2026},
+  doi={TO_BE_ADDED}
 }
 ```
 
@@ -133,8 +125,7 @@ This code is provided for research and educational purposes only.
 
 ## Contact
 
-**Achraf Jallaglag**
-
+**Achraf Jallaglag**  
 Faculty of Sciences Dhar El Mahraz  
 Sidi Mohamed Ben Abdellah University, Fez, Morocco
 
