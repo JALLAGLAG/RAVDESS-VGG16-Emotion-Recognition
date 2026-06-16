@@ -1,10 +1,10 @@
 # Two-Stage VGG16 Emotion Recognition on RAVDESS
 
-This repository contains a compact implementation of the code used for the paper:
+This repository contains the implementation used in the paper:
 
 **A Two-Stage Deep Learning Approach for Facial Emotion Recognition in RAVDESS Videos**
 
-The repository includes only the essential scripts required for reproducibility:
+The repository includes the essential scripts required for reproducibility:
 
 1. Frame extraction from RAVDESS videos.
 2. Actor-independent 5-fold cross-validation.
@@ -16,75 +16,57 @@ The repository includes only the essential scripts required for reproducibility:
 
 ```text
 ravdess_vgg16_code/
-├── config.py
-├── utils.py
 ├── extract_frames.py
 ├── model.py
 ├── train_5fold.py
 ├── gradcam.py
+├── utils.py
 ├── requirements.txt
 └── README.md
 ```
 
 ## Dataset
 
-The dataset used is the video-only speech subset of RAVDESS. The dataset is not redistributed in this repository. Download it from the official source and update `DATA_DIR` in `config.py`.
+The experiments were conducted on the video-only speech subset of the RAVDESS dataset.
 
-Expected input: recursive folders containing RAVDESS video files such as:
+The dataset is not redistributed in this repository and can be obtained from its official source.
 
-```text
-01-01-03-01-01-01-01.mp4
-01-01-04-01-01-01-01.mp4
-...
-```
-
-## Usage
-
-### 1. Install dependencies
+## Installation
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Edit paths
+## Usage
 
-Open `config.py` and set:
-
-```python
-DATA_DIR = Path("/path/to/RAVDESS/video_speech")
-```
-
-### 3. Extract frames
+### Frame extraction
 
 ```bash
 python extract_frames.py
 ```
 
-### 4. Run actor-independent 5-fold cross-validation
+### Actor-independent 5-fold cross-validation
 
 ```bash
 python train_5fold.py
 ```
 
-The script saves:
-
-```text
-outputs/models/fold_X_best_vgg16_ravdess.keras
-outputs/figures/actor_independent_5fold_results.csv
-```
-
-### 5. Generate Grad-CAM
+### Grad-CAM visualization
 
 ```bash
-python gradcam.py \
-  --model /path/to/best_model.keras \
-  --image /path/to/frame.jpg \
-  --true_label fearful \
-  --output gradcam_fearful.png
+python gradcam.py
 ```
 
-## Code Availability statement
+## Code Availability
 
-The source code for the proposed two-stage VGG16-based RAVDESS facial emotion recognition pipeline is available in this repository. The code includes frame extraction, actor-independent five-fold validation, VGG16 fine-tuning, video-level aggregation, and Grad-CAM visualization.
+The source code for the proposed two-stage VGG16-based framework is publicly available in this repository.
 
-After uploading this repository to GitHub, archive it on Zenodo and add the Zenodo DOI to the manuscript.
+The repository includes:
+
+- frame extraction,
+- actor-independent five-fold cross-validation,
+- VGG16 fine-tuning,
+- video-level aggregation using majority voting,
+- Grad-CAM visualization.
+
+The RAVDESS dataset is publicly available and can be obtained from its official repository.
